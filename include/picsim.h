@@ -181,39 +181,47 @@ typedef struct {
 // FIXME remove all IDs
 
 // P16 processors
+
 #define P16F84A 0x0560
 
-/*
-  #define P16F628      0x07C0
+#if 0
+#define P16F628      0x07C0
 #define P16F877      0x09A0
 #define P16F628A     0x1060
 #define P16F648A     0x1100
 #define P16F648AICD  0x1120
 #define P16F877A     0x0E20
- */
+#endif
+
 #define P16F777 0x0DE0
-/*
-    //P16E processors
+
+// P16E processors
+
+#if 0
 #define P16F1619     0x307D
 #define P16F1788     0x302B
 #define P16F1789     0x302A
- */
+#endif
+
 #define P16F18855 0X306C
-/*
+
+#if 0
 #define P16F1939     0x23C0
 #define P16F18324    0x303A
+#endif
 
-    //P18 processors
- */
+// P18 processors
+
 #define P18F452 0x0420
-/*
+
+#if 0
 #define P18F4520    0x1080
 #define P18F4620    0x0C00
 #define P18F4550    0x1200
 #define P18F45K50   0x5C00
 #define P18F27K40   0x6960
 #define P18F47K40   0x6900
-    */
+#endif
 
 /**
  * \defgroup cfg config flags
