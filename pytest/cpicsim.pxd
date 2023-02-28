@@ -4,7 +4,9 @@
 # cython: language_level = 3
 
 cdef extern from "picsim.h":
-    int PD_OUT
+    cdef int PMAX
+
+    cdef int PD_OUT
     cdef int PD_IN
 
     cdef int PT_POWER

@@ -21,9 +21,19 @@ import picsim
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 def runTest():
+    logging.info(f"Available Processors: {picsim.getproclist()}")
+    pname = 'PIC16F628A'
+    proc = picsim.getprocbyname(pname)
+    if proc == 0:
+        logging.error(f"Invalid processor: '{pname}'")
+        return -1
+    family = picsim.getfprocbyname(pname)
+
     pic = picsim.pic()
-    pic.set_serial(0, "/dev/tnt2", 0, 0, 0)
-    pic.init(picsim.P16F84A, "../examples/shift/shift.hex", 1, 20e6)
+    pic.set_serial(0, '/dev/tnt2', 0, 0, 0)
+    pic.set_serial(1, '', 0, 0, 0)
+
+    pic.init(proc, "../examples/shift/shift.hex", 1, 20e6)
     pic.print = True
     for i in range(1000):
       pic.step()

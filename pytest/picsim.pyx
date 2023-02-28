@@ -39,6 +39,22 @@ P16F777   = cpicsim.P16F777
 P16F18855 = cpicsim.P16F18855
 P18F452   = cpicsim.P18F452
 
+def getprocbyname(name : str) -> int:
+    return cpicsim.getprocbyname(name.encode('utf8'))
+
+def getfprocbyname(name : str) -> int:
+    return cpicsim.getfprocbyname(name.encode('utf8'))
+
+def getproclist():
+    proclist = []
+    cdef char[25][30] plist
+    pc = cpicsim.getproclist(plist, cpicsim.PMAX)
+    cdef const char * pname
+    for i in range(pc):
+        pname = &plist[i][0]
+        proclist.append(pname.decode('utf8'))
+    return proclist
+
 cdef class pic_:
     cdef cpicsim._pic pic
     def __cinit__(self):
