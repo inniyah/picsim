@@ -86,16 +86,23 @@ int serial_open(_pic *pic, int nser) {
     return 0;
   }
 #else
-  pic->serial[nser].serialfd =
-      open(pic->serial[nser].SERIALDEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK);
-
-  if (pic->serial[nser].serialfd <= 0) {
-    pic->serial[nser].serialfd = 0;
-    perror(pic->serial[nser].SERIALDEVICE);
-    //    printf("Erro on Port Open:%s!\n",pic->SERIALDEVICE);
-    return 0;
+  struct stat buf;
+  stat(pic->serial[nser].SERIALDEVICE, &buf);
+  if (S_ISBLK(buf.st_mode)) {
+  } else if (S_ISDIR(buf.st_mode)) {
+  } else if (S_ISCHR(buf.st_mode)) {
+    pic->serial[nser].serialfd = open(pic->serial[nser].SERIALDEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK);
+    if (pic->serial[nser].serialfd <= 0) {
+      pic->serial[nser].serialfd = 0;
+      perror(pic->serial[nser].SERIALDEVICE);
+      //~ printf("Error on Port Open: '%s'\n", pic->serial[nser].SERIALDEVICE);
+      return 0;
+    }
+    //~ printf("Port Open:%s!\n",pic->SERIALDEVICE);
+  } else if (S_ISBLK(buf.st_mode)) {
+  } else if (S_ISFIFO(buf.st_mode)) {
+  } else {
   }
-  //  printf("Port Open:%s!\n",pic->SERIALDEVICE);
 #endif
   return 1;
 }

@@ -926,37 +926,37 @@ cdef class bb_uart_:
         cdef bb_uart_ u = bb_uart_()
         u.ptr = ptr
         return u
-    def getprx(self) -> uint8_t:
+    def getPrx(self) -> uint8_t:
         return self.ptr.prx
-    def getinsr(self) -> uint16_t:
+    def getInsr(self) -> uint16_t:
         return self.ptr.insr
-    def getoutsr(self) -> uint16_t:
+    def getOutsr(self) -> uint16_t:
         return self.ptr.outsr
-    def getbcr(self) -> uint32_t:
+    def getBcr(self) -> uint32_t:
         return self.ptr.bcr
-    def gettcountr(self) -> uint32_t:
+    def getTcountr(self) -> uint32_t:
         return self.ptr.tcountr
-    def getbcw(self) -> uint32_t:
+    def getBcw(self) -> uint32_t:
         return self.ptr.bcw
-    def gettcountw(self) -> uint32_t:
+    def getTcountw(self) -> uint32_t:
         return self.ptr.tcountw
-    def getspeed(self) -> uint32_t:
+    def getSpeed(self) -> uint32_t:
         return self.ptr.speed
-    def getcycle_count(self) -> uint32_t:
+    def getCycleCount(self) -> uint32_t:
         return self.ptr.cycle_count
-    def getrxc(self) -> uint32_t:
+    def getRxc(self) -> uint32_t:
         return self.ptr.rxc
-    def getleds(self) -> uint32_t:
+    def getLeds(self) -> uint32_t:
         return self.ptr.leds
-    def getdatar(self) -> uint8_t:
+    def getDataR(self) -> uint8_t:
         return self.ptr.datar
-    def getdata_recv(self) -> uint8_t:
+    def getDataRecv(self) -> uint8_t:
         return self.ptr.data_recv
-    def getdataw(self) -> uint8_t:
+    def getDataW(self) -> uint8_t:
         return self.ptr.dataw
-    def getdata_to_send(self) -> uint8_t:
+    def getDataToSend(self) -> uint8_t:
         return self.ptr.data_to_send
-    def getfreq(self) -> uint32_t:
+    def getFreq(self) -> uint32_t:
         return self.ptr.freq
 
 cdef class serial_:
@@ -968,59 +968,59 @@ cdef class serial_:
         cdef serial_ s = serial_()
         s.ptr = ptr
         return s
-    def getrecb(self) -> uint8_t:
+    def getRecb(self) -> uint8_t:
         return self.ptr.recb
-    def getserialc(self) -> int:
+    def getSerialc(self) -> int:
         return self.ptr.serialc
-    def getserialbaud(self) -> uint32_t:
+    def getSerialBaud(self) -> uint32_t:
         return self.ptr.serialbaud
-    def getserialexbaud(self) -> float:
+    def getSerialExBaud(self) -> float:
         return self.ptr.serialexbaud
-    def getserialfd(self) -> int:
+    def getSerialFd(self) -> int:
         return self.ptr.serialfd
-    def gets_open(self) -> int:
+    def getSOpen(self) -> int:
         return self.ptr.s_open
-    def getflowcontrol(self) -> int:
+    def getFlowControl(self) -> int:
         return self.ptr.flowcontrol
-    def getctspin(self) -> int:
+    def getCtSpin(self) -> int:
         return self.ptr.ctspin
-    def getrtspin(self) -> int:
+    def getRtSpin(self) -> int:
         return self.ptr.rtspin
-    def getbc(self) -> int:
+    def getBc(self) -> int:
         return self.ptr.bc
-    def getserial_TXSTA(self) -> uint8_t:
-        return self.ptr.serial_TXSTA
-    def getserial_PIR(self) -> uint8_t:
-        return self.ptr.serial_PIR
-    def getserial_PIE(self) -> uint8_t:
-        return self.ptr.serial_PIE
-    def getRXIF_mask(self) -> uint8_t:
+    def getRxIFMask(self) -> uint8_t:
         return self.ptr.RXIF_mask
-    def getTXIF_mask(self) -> uint8_t:
+    def getTxIFMask(self) -> uint8_t:
         return self.ptr.TXIF_mask
-    def getserial_RCSTA(self) -> uint8_t:
+    def getSerialTXSTA(self) -> uint8_t:
+        return self.ptr.serial_TXSTA
+    def getSerialPIR(self) -> uint8_t:
+        return self.ptr.serial_PIR
+    def getSerialPIE(self) -> uint8_t:
+        return self.ptr.serial_PIE
+    def getSerialRCSTA(self) -> uint8_t:
         return self.ptr.serial_RCSTA
-    def getserial_SPBRG(self) -> uint8_t:
+    def getSerialSPBRG(self) -> uint8_t:
         return self.ptr.serial_SPBRG
-    def getserial_SPBRGH(self) -> uint8_t:
+    def getSerialSPBRGH(self) -> uint8_t:
         return self.ptr.serial_SPBRGH
-    def getserial_BAUDCTL(self) -> uint8_t:
+    def getSerialBAUDCTL(self) -> uint8_t:
         return self.ptr.serial_BAUDCTL
-    def getserial_RCREG(self) -> uint8_t:
+    def getSerialRCREG(self) -> uint8_t:
         return self.ptr.serial_RCREG
-    def getserial_TXREG(self) -> uint8_t:
+    def getSerialTXREG(self) -> uint8_t:
         return self.ptr.serial_TXREG
-    def getserial_TXREG_ADDR(self) -> uint16_t:
+    def getSerialTXREGADDR(self) -> uint16_t:
         return self.ptr.serial_TXREG_ADDR
-    def getserial_RCSTA_ADDR(self) -> uint16_t:
+    def getSerialRCSTAADDR(self) -> uint16_t:
         return self.ptr.serial_RCSTA_ADDR
-    def getserial_RCREG_ADDR(self) -> uint16_t:
+    def getSerialRCREGADDR(self) -> uint16_t:
         return self.ptr.serial_RCREG_ADDR
-    def getserial_TRIS_RX(self) -> uint8_t:
+    def getSerialTRISRX(self) -> uint8_t:
         return self.ptr.serial_TRIS_RX
-    def getserial_TRIS_RX_MASK(self) -> uint8_t:
+    def getSerialTRISRXMASK(self) -> uint8_t:
         return self.ptr.serial_TRIS_RX_MASK
-    def getbbuart(self) -> bb_uart_:
+    def getBbUART(self) -> bb_uart_:
         u = bb_uart_.create(&self.ptr.bbuart)
         return u
 
