@@ -298,7 +298,7 @@ void PIC16F1829_reset(_pic* pic) {
     p16e_mssp_rst(pic);
     p16e_int_pin_rst(pic);
     p16e_int_ports_rst(pic);
-    p16e_uart_rst_2(pic);
+    p16e_uart_rst_2(pic, 0);
 }
 
 void PIC16F1829_periferic(_pic* pic) {
@@ -329,6 +329,10 @@ int PIC16F1829_getconf(_pic* pic, unsigned int cfg) {
     return 0;
 }
 
+void PIC16F1829_disable_debug(_pic* pic) {
+    pic->config[1] |= 0x0100;
+}
+
 void PIC16F1829_stop(_pic* pic) {
     p16e_uart_stop(pic, 0);
 }
@@ -351,6 +355,7 @@ void PIC16F1829_start(_pic* pic) {
     pic->periferic = PIC16F1829_periferic;
     pic->interrupt = interrupt16E;
     pic->stop = PIC16F1829_stop;
+    pic->disable_debug = PIC16F1829_disable_debug;
 
     p16e_uart_start(pic, 0);
 }
