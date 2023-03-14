@@ -47,7 +47,7 @@ def getfprocbyname(name : str) -> int:
 
 def getproclist():
     proclist = []
-    cdef char[25][30] plist
+    cdef char[30][30] plist
     pc = cpicsim.getproclist(plist, cpicsim.PMAX)
     cdef const char * pname
     for i in range(pc):
