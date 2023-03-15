@@ -39,6 +39,7 @@ endif
 
 CFLAGS= \
 	-Wall \
+	-Wno-unused-result \
 	-fwrapv \
 	-fstack-protector-strong \
 	-Wall \
